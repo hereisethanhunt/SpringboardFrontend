@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<link rel="icon" href="{{ url_for('static', filename = 'springboard.png') }}">
+
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'bootstrap/css/bootstrap.min.css') }}"></link>
+<script src="{{ url_for('static', filename = 'bootstrap/js/bootstrap.min.js') }}"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	
+<title>SpringBoard</title>
+</head>
+
+<style type="text/css">
+body{
+	background-image: url("/static/skulls.png");
+}
+* {
+  border-radius: 5px !important;
+}
+.nopadding{
+    padding: 0 !important;
+    margin: 0 !important;
+}
+p { color: #049372; font-size: 17px; font-family: "Libre Baskerville", serif; line-height: 20px; text-shadow: 0 1px 1px #89d37c;font-style: italic; padding-top: 8px;}
+h3 { color: #ffffff; font-size: 30px; font-family: "Libre Baskerville", serif; line-height: 20px; text-shadow: 0 1px 1px #049372;font-style: italic; padding-top: 8px;}
+h4 { color: #000000; font-size: 18px; font-family: "Libre Baskerville", serif; line-height: 20px; text-shadow: 0 1px 1px #049372;font-style: italic; padding-top: 8px;}
+#rlprevinput{
+    min-width:500px;
+}
+@media only screen and (max-width: 917px) {
+    
+}
+@media only screen and (max-width: 868px) {
+    
+}
+@media only screen and (max-width: 828px) {
+    #rlprevinput {
+min-width: 500px;
+    }
+}
+@media only screen and (max-width: 768px) {
+    #rlprevinput {
+min-width: 650px;
+text-align: center;
+    }
+}
+@media only screen and (max-width: 710px) {
+    #rlprevinput {
+min-width: 600px;
+    }
+}
+@media only screen and (max-width: 665px) {
+    #rlprevinput {
+min-width: 500px;
+    }
+}
+@media only screen and (max-width: 565px) {
+    #rlprevinput {
+min-width: 400px;
+    }
+}
+@media only screen and (max-width: 465px) {
+    #rlprevinput {
+min-width: 300px;
+    }
+}
+@media only screen and (max-width: 365px) {
+    #rlprevinput {
+min-width: 200px;
+    }
+}
+@media only screen and (max-width: 265px) {
+
+    #rlprevinput {
+min-width: 100px;
+    }
+}
+    @media only screen and (max-width: 165px) {
+    #rlprevinput {
+min-width: 100%;
+    }
+}
+.well{background-color: #89d37c}
+</style>
+
+<body>
+	<div class = "container-fluid">
+		<div class="row well well-sm" style="background-color:#90c695">
+			<div class="col-sm-2">
+				<img class="img-responsive" src="https://www.springboard.com/images/springboard/springboard_logo.c9ce99a3.png" alt="springboard" width="140" height="140">
+			</div>
+			<div class="col-sm-10">
+				<div class="input-group">
+    				<input type="text" min="0" max="5" class="form-control input-md" list="list1" id="rlprevinput" placeholder="Search text">
+    				<datalist id="list1" ></datalist>
+    				<span class="input-group-btn" style="width:0;">
+        				<button class="btn btn-default" type="button" id="searchbtn"> <i class="glyphicon glyphicon-search"></i></button>
+    				</span>
+				</div>
+			</div>
+		</div>
+		<div class="row"  style="">
+			<div class="col-lg-3">
+				<div class="row ">
+					<p>List The Data Sorted By:</p>
+					<div class="panel-group" id="accordion">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+        						<h4 class="panel-title">
+          							<a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><p>Learners</p></a>
+        						</h4>
+							</div>
+							<div id="collapse1" class="panel-collapse collapse">
+        						<div class="panel-body">
+        							<p>This Sorts Data By Vote in Descending Order:</p>
+        							<button class="btn btn-default" type="button" id="sort1"> <i class="glyphicon glyphicon-sort"></i></button>
+        						</div>
+      						</div>
+    					</div>
+ 	 				</div>
+ 	 				<div class="panel-group" id="accordion">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+        						<h4 class="panel-title">
+          							<a data-toggle="collapse" data-parent="#accordion" href="#collapse2"><p>Vote(Up)</p></a>
+        						</h4>
+							</div>
+							<div id="collapse2" class="panel-collapse collapse">
+        						<div class="panel-body">
+        							<p>This Sorts Data By Vote in Descending Order:</p>
+        							<button class="btn btn-default" type="button" id="sort2"> <i class="glyphicon glyphicon-sort"></i></button>
+        						</div>
+      						</div>
+    					</div>
+ 	 				</div>
+ 	 				<div class="panel-group" id="accordion">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+        						<h4 class="panel-title">
+          							<a data-toggle="collapse" data-parent="#accordion" href="#collapse3"><p>Vote(down)</p></a>
+        						</h4>
+							</div>
+							<div id="collapse3" class="panel-collapse collapse">
+        						<div class="panel-body">
+        							<p>This Sorts Data By Vote in Descending Order:</p>
+        							<button class="btn btn-default" type="button" id="sort3"> <i class="glyphicon glyphicon-sort"></i></button>
+        						</div>
+      						</div>
+    					</div>
+ 	 				</div>
+ 	 				<div class="panel-group" id="accordion">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+        						<h4 class="panel-title">
+          							<a data-toggle="collapse" data-parent="#accordion" href="#collapse4"><p>Duration</p></a>
+        						</h4>
+							</div>
+							<div id="collapse4" class="panel-collapse collapse">
+        						<div class="panel-body">
+        							<p>This Sorts Data By Vote in Descending Order:</p>
+        							<button class="btn btn-default" type="button" id="sort4"> <i class="glyphicon glyphicon-sort"></i></button>
+        						</div>
+      						</div>
+    					</div>
+ 	 				</div>					
+				</div>
+			</div>
+			<div class="col-lg-9" id="newdiv">
+			<p>List Are As Follows:</p>
+				<!-- <div class="row">
+					<div class="col-lg-12">	
+						<div class="well well-lg">
+
+							<div class="row">
+								<div class="col-lg-4">
+									<img src="">
+								</div>
+								<div class="col-lg-8">
+									<h3></h3>
+									<h4></h4>
+								</div>
+							</div>
+							<div class="row">
+								<h4><a></a></h4>
+								<h4></h4>
+								<h4></h4>
+								<h4></h4>
+								<button class="btn" type="button" id="upvote"> <i class="glyphicon glyphicon-thumbs-up"></i></button>
+								<h5></h5>
+								<button class="btn" type="button" id="downvote"> <i class="glyphicon glyphicon-down"></i></button>
+								<h5></h5>
+							</div>
+
+						</div>
+					</div>
+					<i class="glyphicon glyphicon-thumbs-up"></i>
+				</div> -->
+			</div>
+		</div>
+	</div>
+
+<script type="text/javascript">
+
+	function upvote(id)
+	{
+		var vall=sessionStorage.getItem(id);
+		
+		if(vall==null)
+			{vall=1;
+			sessionStorage.setItem(id,vall);}
+		else
+			{vall++;
+			sessionStorage.setItem(id,vall);}
+		
+		document.getElementById(id).innerHTML = vall;
+	}
+
+	function downvote(id)
+	{
+		arrdown[id]++;
+		console.log(id);
+		document.getElementById(id).innerHTML = arrdown[id];
+	}
+
+	function myFunction(list) {
+    	
+    				var divrow=document.createElement("div");
+					divrow.className="row";
+					var divcol1=document.createElement("div");
+					divcol1.className="col-lg-12";
+					var divwell=document.createElement("div");
+					divwell.className="well well-lg";
+					
+
+					var divwellrow1=document.createElement("div");
+					divwellrow1.className="row";
+					var divwellrow1col1=document.createElement("div");
+					divwellrow1col1.className="col-lg-4";
+					var img=document.createElement("img");
+					var divwellrow1col2=document.createElement("div");
+					divwellrow1col2.className="col-lg-8";
+					var hrow1_1=document.createElement("h3");
+					var hrow1_2=document.createElement("p");
+
+
+					var divwellrow2=document.createElement("div");
+					divwellrow2.className="row";
+					var hrow2_1=document.createElement("p");
+					var hrow2_2=document.createElement("p");
+					var hrow2_3=document.createElement("p");
+					var a=document.createElement("a");
+					var linkText = document.createTextNode(list.sign_up)
+					var hrow2_4=document.createElement("h4");
+					var btn = document.createElement("BUTTON");
+					btn.id=list.id;
+					var val = document.createAttribute("onclick");
+					val.value = "upvote(this.id)";
+					btn.setAttributeNode(val);
+					var i = document.createElement("i");
+					i.className="glyphicon glyphicon-thumbs-up";
+					btn.appendChild(i);
+										
+					var btn1 = document.createElement("BUTTON");
+					btn1.id=100+parseInt(list.id,10);
+					var val = document.createAttribute("onclick");
+					val.value = "downvote(this.id)";
+					btn1.setAttributeNode(val);
+					var i = document.createElement("i");
+					i.className="glyphicon glyphicon-thumbs-down";
+					btn1.appendChild(i);
+					
+					img.src= list.image;
+					img.className="img-thumbnail";
+					hrow1_1.innerHTML= "Title: " + list.name;
+					hrow1_2.innerHTML= "Description: " + list.description;
+					hrow2_1.innerHTML= "Learner: " + list.learner;
+					hrow2_2.innerHTML= "Hours: " + list.hours;
+					a.href= list.sign_up;
+					a.title="Sign-Up"
+					hrow2_4.innerHTML= "Tags: " + list.tags;
+					divrow.appendChild(divcol1);
+					divcol1.appendChild(divwell);
+					divwell.appendChild(divwellrow1);
+					divwell.appendChild(divwellrow2);
+					divwellrow1.appendChild(divwellrow1col1);
+					divwellrow1.appendChild(divwellrow1col2);
+					divwellrow1col1.appendChild(img);
+					divwellrow1col2.appendChild(hrow1_1);
+					divwellrow1col2.appendChild(hrow1_2);
+
+					divwellrow2.appendChild(hrow2_1);
+					divwellrow2.appendChild(hrow2_2);
+					divwellrow2.appendChild(hrow2_3);
+					hrow2_3.appendChild(a);
+					a.appendChild(linkText);
+					divwellrow2.appendChild(hrow2_4);
+					divwellrow2.appendChild(btn);
+					divwellrow2.appendChild(btn1);
+					
+					document.getElementById("newdiv").appendChild(divrow);
+					}
+
+
+	var availableTags=[];
+	var arrup=[];
+	var arrdown=[];
+	for (var i = 0; i < 100; i++) {arrup[i] = 0;}
+	for (var i = 100; i < 200; i++) {arrdown[i]=0;}
+
+	$("#rlprevinput").keyup(function(event){
+    if(event.keyCode == 13){
+        $("#searchbtn").click();
+    }
+	});
+
+	$( function() {
+		$.ajax({
+ 			url: 'https://hackerearth.0x10.info/api/learning-paths?type=json&query=list_paths',
+ 			type: 'GET',
+ 			dataType: 'json',
+ 			success: function (data, textStatus, xhr) {
+ 				list=data.paths;
+				for(var i=0;i<list.length;i++)
+				{	
+					entry = list[i].tags;
+					entryArray = entry.split(",");
+					for(var j=0;j<entryArray.length;j++)
+						availableTags.push(entryArray[j]);
+
+				}
+				console.log(availableTags);
+ 			},
+ 			error: function (xhr, textStatus, errorThrown) {
+ 				console.log('Error in Operation');
+ 			}
+ 		});
+
+    $( "#rlprevinput" ).autocomplete({
+    	maxResults:10,
+      source: function(request, response) {
+        var results = $.ui.autocomplete.filter(availableTags, request.term);
+        response(results.slice(0, this.options.maxResults));
+    	}
+    });
+  } );
+
+
+	$(document).ready(function () {
+ 		$.ajax({
+ 			url: 'https://hackerearth.0x10.info/api/learning-paths?type=json&query=list_paths',
+ 			type: 'GET',
+ 			dataType: 'json',
+ 			success: function (data, textStatus, xhr) {
+ 				
+ 				list=data.paths;
+				
+				for(var i=0;i<list.length;i++)
+				{
+					myFunction(list[i]);
+				}
+ 			},
+ 			error: function (xhr, textStatus, errorThrown) {
+ 				console.log('Error in Operation');
+ 			}
+ 		});
+ 	});
+
+
+$(function() {
+    $("#searchbtn").click(function() {
+    	 var a = document.getElementById("newdiv");
+    	 while(a.hasChildNodes()) {
+    	 	a.removeChild(a.lastChild);
+    	 }
+    	 $.ajax({
+ 			url: 'https://hackerearth.0x10.info/api/learning-paths?type=json&query=list_paths',
+ 			type: 'GET',
+ 			dataType: 'json',
+ 			success: function (data, textStatus, xhr) {
+ 				list=data.paths;
+				var searched=document.getElementById("rlprevinput").value;
+				console.log(searched);
+				for(var i=0;i<list.length;i++)
+				{
+					entry = list[i].tags;
+					entryArray = entry.split(",");
+					for(var j=0;j<entryArray.length;j++)
+					{
+						if(entryArray[j]==searched)
+						{
+							myFunction(list[i])
+							break;
+						}
+					}
+				}
+ 			},
+ 			error: function (xhr, textStatus, errorThrown) {
+ 				console.log('Error in Operation');
+ 			}
+ 		});   
+    });
+  });
+
+
+</script>
+
+</body>
+</html>
